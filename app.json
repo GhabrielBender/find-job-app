@@ -5,6 +5,14 @@
       "bundler": "metro"
     },
     "name": "expo-teste",
-    "slug": "expo-teste"
+    "slug": "expo-teste",
+    "extra": {
+      "eas": {
+        "projectId": "126ca05f-3c8b-4740-b9d7-cb2ea08b6385"
+      }
+    },
+    "android": {
+      "package": "com.ghabril.expoteste"
+    }
   }
 }

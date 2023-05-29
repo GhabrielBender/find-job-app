@@ -1,15 +1,17 @@
 import React from "react";
 import { Image, TouchableOpacity } from "react-native";
 
-import styles from "./screenheader.style";
-
 const ScreenHeaderBtn = ({ iconUrl, dimension, handlePress }) => {
   return (
-    <TouchableOpacity style={styles.btnContainer} onPress={handlePress}>
+    <TouchableOpacity
+      className="w-10 h-10 bg-white rounded justify-center items-center"
+      onPress={handlePress}
+    >
       <Image
         source={iconUrl}
         resizeMode="cover"
-        style={styles.btnImg(dimension)}
+        style={{ width: dimension, height: dimension }}
+        className="rounded"
       />
     </TouchableOpacity>
   );

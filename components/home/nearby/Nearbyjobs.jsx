@@ -1,7 +1,6 @@
 import { View, Text, TouchableOpacity, ActivityIndicator } from "react-native";
 import { useRouter } from "expo-router";
 
-import styles from "./nearbyjobs.style";
 import { COLORS } from "../../../constants";
 import NearbyJobCard from "../../common/cards/nearby/NearbyJobCard";
 
@@ -20,15 +19,15 @@ const Nearbyjobs = () => {
   };
 
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.headerTitle}>Nearby jobs</Text>
+    <View className="mt-5">
+      <View className="flex-row justify-between items-center">
+        <Text className="text-lg font-medium text-primary">Nearby jobs</Text>
         <TouchableOpacity>
-          <Text style={styles.headerBtn}>Show all</Text>
+          <Text className="text-base font-medium text-gray">Show all</Text>
         </TouchableOpacity>
       </View>
 
-      <View style={styles.cardsContainer}>
+      <View className="mt-5" style={{ gap: 10 }}>
         {isLoading ? (
           <ActivityIndicator size="large" colors={COLORS.primary} />
         ) : error ? (

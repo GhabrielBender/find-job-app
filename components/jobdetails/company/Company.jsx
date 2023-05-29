@@ -1,36 +1,44 @@
 import React from "react";
 import { View, Text, Image } from "react-native";
 
-import styles from "./company.style";
 import { icons } from "../../../constants";
 import { checkImageURL } from "../../../utils";
 
+import { COLORS } from "../../../constants";
+
 const Company = ({ companyLogo, jobTitle, companyName, location }) => {
   return (
-    <View style={styles.container}>
-      <View style={styles.logoBox}>
+    <View className="my-4 justify-center items-center">
+      <View className="w-20 h-20 justify-center items-center bg-superWhite rounded-lg">
         <Image
           source={{
             uri: checkImageURL(companyLogo)
               ? companyLogo
               : "https://t4.ftcdn.net/jpg/05/05/61/73/360_F_505617309_NN1CW7diNmGXJfMicpY9eXHKV4sqzO5H.jpg",
           }}
-          style={styles.logoImage}
+          className="w-4/5 h-4/5"
         />
       </View>
-      <View style={styles.jobTitleBox}>
-        <Text style={styles.jobTitle}>{jobTitle}</Text>
+      <View className="mt-3">
+        <Text className="text-lg text-primary font-bold text-center">
+          {jobTitle}
+        </Text>
       </View>
 
-      <View style={styles.companyInfoBox}>
-        <Text style={styles.companyName}>{companyName} /</Text>
+      <View className="mt-2 flex-row justify-center items-center">
+        <Text className="text-base text-primary font-medium">
+          {companyName} /
+        </Text>
         <View>
           <Image
             source={icons.location}
             resizeMode="contain"
-            style={styles.locationImage}
+            className="w-3 h-4"
+            style={{ tintColor: COLORS.gray }}
           />
-          <Text style={styles.locationName}>{location}</Text>
+          <Text className="text-base text-gray font-medium ml-1">
+            {location}
+          </Text>
         </View>
       </View>
     </View>

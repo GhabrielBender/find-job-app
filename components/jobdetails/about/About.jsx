@@ -1,15 +1,13 @@
 import React from "react";
 import { View, Text } from "react-native";
 
-import styles from "./about.style";
-
 const About = ({ info }) => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.headText}>About the job:</Text>
+    <View className="mt-5 bg-superWhite rounded-md p-4">
+      <Text className="text-lg text-primary font-bold">About the job:</Text>
 
-      <View styles={styles.contentBox}>
-        <Text style={styles.contextText}>{info}</Text>
+      <View className="my-3">
+        <Text className="text-base text-gray font-normal my-2">{info}</Text>
       </View>
     </View>
   );

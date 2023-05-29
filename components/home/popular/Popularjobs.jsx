@@ -10,7 +10,6 @@ import {
 
 import { useRouter } from "expo-router";
 
-import styles from "./popularjobs.style";
 import { COLORS, SIZES } from "../../../constants";
 
 import PopularJobCard from "../../common/cards/popular/PopularJobCard";
@@ -32,15 +31,15 @@ const Popularjobs = () => {
   };
 
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.headerTitle}>Popularjobs</Text>
+    <View className="mt-6">
+      <View className="flex-row justify-between items-center">
+        <Text className="text-lg font-medium text-primary">Popularjobs</Text>
         <TouchableOpacity>
-          <Text style={styles.headerBtn}>Show all</Text>
+          <Text className="text-base font-medium text-gray">Show all</Text>
         </TouchableOpacity>
       </View>
 
-      <View style={styles.cardsContainer}>
+      <View className="mt-4">
         {isLoading ? (
           <ActivityIndicator size="large" colors={COLORS.primary} />
         ) : error ? (

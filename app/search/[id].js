@@ -8,12 +8,10 @@ import {
 } from "react-native";
 import { Stack, useRouter, useSearchParams } from "expo-router";
 import { Text, SafeAreaView } from "react-native";
-// import axios from "axios";
 import info from "../../data.json";
 
 import { ScreenHeaderBtn, NearbyJobCard } from "../../components";
 import { COLORS, icons, SIZES } from "../../constants";
-import styles from "../../styles/search";
 
 const JobSearch = () => {
   const params = useSearchParams();
@@ -112,11 +110,15 @@ const JobSearch = () => {
         contentContainerStyle={{ padding: SIZES.medium, rowGap: SIZES.medium }}
         ListHeaderComponent={() => (
           <>
-            <View style={styles.container}>
-              <Text style={styles.searchTitle}>{params.id}</Text>
-              <Text style={styles.noOfSearchedJobs}>Job Opportunities</Text>
+            <View className="w-full">
+              <Text className="font-bold text-xl text-primary">
+                {params.id}
+              </Text>
+              <Text className="mt-1 font-medium text-sm text-primary">
+                Job Opportunities
+              </Text>
             </View>
-            <View style={styles.loaderContainer}>
+            <View className="mt-4">
               {searchLoader ? (
                 <ActivityIndicator size="large" color={COLORS.primary} />
               ) : (
@@ -126,27 +128,29 @@ const JobSearch = () => {
           </>
         )}
         ListFooterComponent={() => (
-          <View style={styles.footerContainer}>
+          <View className="mt-3 justify-center items-center flex-row gap-2">
             <TouchableOpacity
-              style={styles.paginationButton}
+              className="w-7 h-7 rounded-sm justify-center items-center bg-tertiary"
               onPress={() => handlePagination("left")}
             >
               <Image
                 source={icons.chevronLeft}
-                style={styles.paginationImage}
+                className="w-3/5 h-3/5"
+                style={{ tintColor: COLORS.white }}
                 resizeMode="contain"
               />
             </TouchableOpacity>
-            <View style={styles.paginationTextBox}>
-              <Text style={styles.paginationText}>{page}</Text>
+            <View className="w-7 h-7 rounded-sm justify-center items-center bg-white">
+              <Text className="font-bold text-base text-primary">{page}</Text>
             </View>
             <TouchableOpacity
-              style={styles.paginationButton}
+              className="font-bold text-base text-primary"
               onPress={() => handlePagination("right")}
             >
               <Image
                 source={icons.chevronRight}
-                style={styles.paginationImage}
+                className="w-3/5 h-3/5"
+                style={{ tintColor: COLORS.white }}
                 resizeMode="contain"
               />
             </TouchableOpacity>
